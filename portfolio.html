@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Bao An - Data Science Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #e0f7fa, #e8f5e9);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .header {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to right, #1f4037, #99f2c8);
+            color: #fff;
+            padding: 0 8.5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+
+        .logo {
+            width: 120px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-size: 17px;
+        }
+
+        nav ul li a:hover {
+            color: #2abbdb;
+        }
+
+        .text {
+            margin-top: 20px;
+            font-size: 17px;
+            letter-spacing: 1px;
+            line-height: 26px;
+        }
+
+        .text h1 {
+            font-size: 50px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .text p {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .text a {
+            margin-top: 10px;
+            display: inline-block;
+            border-radius: 6px;
+            border: 2px solid #2abbdb;
+            color: #2abbdb;
+            padding: 10px 30px;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .text a:hover {
+            background: #2abbdb;
+            color: #fff;
+        }
+
+        .text .btn {
+            background: #2abbdb;
+            color: #000;
+            margin-left: 20px;
+            font-weight: 600;
+        }
+
+        .text .btn:hover {
+            background: #fff;
+            color: #2abbdb;
+        }
+
+        .section {
+            padding: 50px 8.5%;
+            background: #fff;
+            color: #333;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #1f4037;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about img {
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .about a {
+            text-decoration: none;
+            color: #2abbdb;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .about a:hover {
+            color: #1f4037;
+        }
+
+        .projects, .education, .certifications, .contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .projects .project, .education .edu-item, .certifications .cert-item {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            border: 2px solid #2abbdb;
+            border-radius: 6px;
+            background: #f9f9f9;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .projects .project:hover, .education .edu-item:hover, .certifications .cert-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .projects .project h3, .education .edu-item h3, .certifications .cert-item h3 {
+            margin-bottom: 10px;
+            color: #1f4037;
+        }
+
+        .projects .project p, .education .edu-item p, .certifications .cert-item p {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .projects .project ul {
+            margin-bottom: 10px;
+            padding-left: 20px; /* Add padding to align bullets */
+        }
+
+        .projects .project ul li {
+            list-style-type: disc; /* Add bullet points */
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .projects .project a {
+            display: block; /* Make link a block element */
+            text-align: center; /* Center align the text */
+            color: #2abbdb;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .projects .project a:hover {
+            color: #1f4037;
+        }
+
+        .skills {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 20px;
+        }
+
+        .skills h2 {
+            text-align: left;
+            width: 100%;
+        }
+
+        .skills .skill-item {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .skills .skill-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .skills .skill-bar {
+            width: 100%;
+            background: #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .skills .skill-level {
+            height: 20px;
+            background: #2abbdb;
+            border-radius: 6px;
+        }
+
+        .skills .skill-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .skills .languages {
+            margin-top: 30px;
+        }
+
+        .skills .languages h2 {
+            text-align: left;
+            width: 100%;
+        }
+
+        .skills .languages p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .contact a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #1f4037;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .contact a img {
+            width: 30px;
+        }
+
+        .contact a:hover {
+            color: #2abbdb;
+        }
+
+        .footer {
+            background: #1f4037;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            left: -150px;
+            width: 300px;
+            height: 300px;
+            background: rgba(46, 204, 113, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .section::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            right: -150px;
+            width: 300px;
+            height: 300px;
+            background: rgba(46, 204, 113, 0.3);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header, .section {
+                padding: 40px 6%;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .projects .project, .education .edu-item, .certifications .cert-item {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <nav>
+            <img src="images/avt.jpg" alt="Logo" class="logo">
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="text">
+            <h1>I'm <span class="input"></span></h1>
+            <p>Data Analytics Enthusiast | Statistical Analysis | Machine Learning</p>
+            <a href="mailto:thaibaoan27122003@gmail.com">Contact Me</a>
+            <a href="files/My CV.pdf" class="btn">My CV</a>
+        </div>
+    </div>
+
+    <div id="about" class="section">
+        <div class="about">
+            <h2>About Me</h2>
+            <p>Hi, I'm Thai Bao An, a Data Science student, I like working with numbers and information to figure out useful things. Right now, I'm a student at UEH university, where I'm learning all sorts of cool stuff about processing, analyzing data, using statistics, and machine learning.</p>
+            <p>My enthusiasm for data extends beyond the classroom; I actively seek real-world projects to apply my skills and gain practical experience. I'm always on the lookout for collaboration opportunities where I can contribute and learn from others in the field. I am committed to practical learning through real-world projects. I actively seek opportunities to apply my knowledge and skills in collaborative endeavors, where I can contribute meaningfully and gain invaluable experience. Whether it's delving into predictive modeling, conducting exploratory data analysis, or implementing cutting-edge algorithms, I thrive on the challenges posed by hands-on projects</p>
+            <p>Feel free to explore my work and connect with me for collaboration!</p>
+        </div>
+    </div>
+
+    <div id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Customer Shopping Trends Analysis and Modeling</h3>
+                <ul>
+                    <li><strong>Description:</strong> Explored patterns in customer purchasing habits, identified key trends, and developed predictive models to forecast future behaviors.</li>
+                    <li><strong>Technologies Used:</strong> SQL, Power BI, Python</li>
+                    <li><strong>Objective:</strong> To understand and predict customer behavior to enhance business strategies.</li>
+                </ul>
+                <a href="https://github.com/AnT2003/Shopping-Trends-Analysis-Project" target="_blank" class="view-project">View Project</a>
+            </div>
+            <div class="project">
+                <h3>E-commerce Sentiment Analysis</h3>
+                <ul>
+                    <li><strong>Description:</strong> Crawled data from Tiki, one of Vietnam's largest e-commerce platforms, and performed sentiment analysis on the gathered data.</li>
+                    <li><strong>Technologies Used:</strong> Python</li>
+                    <li><strong>Objective:</strong> To gain insights into consumer opinions and preferences, informing strategic business decisions, enhancing product offerings, and improving customer satisfaction.</li>
+                </ul>
+                <a href="https://github.com/AnT2003/Sentiment-Analysis-Project" target="_blank" class="view-project">View Project</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="education" class="section">
+        <h2>Education</h2>
+        <div class="education">
+            <div class="edu-item">
+                <h3>Bachelor of Science in Data Science</h3>
+                <p>University of Economics Ho Chi Minh City (UEH), Expected Graduation: 2025</p>
+                <p>GPA: 3.56/4.0</p>
+                <img src="images/ueh-logo.png" alt="UEH Logo" style="width: 200px; height: auto; margin-top: 20px;">
+            </div>
+        </div>
+    </div>
+
+    <div id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill-item">
+                <div class="skill-name">Excel & Power BI</div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 70%;"></div>
+                </div>
+                <div class="skill-label">Intermediate</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">SQL & Python</div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 65%;"></div>
+                </div>
+                <div class="skill-label">Intermediate</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Statistical Analysis</div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 70%;"></div>
+                </div>
+                <div class="skill-label">Intermediate</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Data Collection & Processing</div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 50%;"></div>
+                </div>
+                <div class="skill-label">Beginner</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">Machine Learning</div>
+                <div class="skill-bar">
+                    <div class="skill-level" style="width: 60%;"></div>
+                </div>
+                <div class="skill-label">Intermediate</div>
+            </div>
+        </div>
+        <div class="languages">
+            <h2>Languages</h2>
+            <p>Vietnamese (Native), English (Intermediate - TOEIC 625)</p>
+        </div>
+    </div>
+
+    <div id="certifications" class="section">
+        <h2>Certifications</h2>
+        <div class="certifications">
+            <div class="cert-item" onclick="window.open('https://coursera.org/share/183389b2e53146a096ef45f969b6708a', '_blank')">
+                <h3>Google Data Analytics Specialization</h3>
+                <p>(Click to View)</p>
+            </div>
+            <div class="cert-item" onclick="window.open('https://coursera.org/share/3a0bc067c086a6b39981526c1cc3e3a2', '_blank')">
+                <h3>IBM Data Science Specialization</h3>
+                <p>(Click to View)</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="section">
+        <h2>Contact</h2>
+        <div class="contact">
+            <a href="mailto:thaibaoan27122003@gmail.com">
+                <img src="images/email.png" alt="Email"> thaibaoan27122003@gmail.com
+            </a>
+            <a href="tel:0902967905">
+                <img src="images/phone.jpg" alt="Phone"> 0902967905
+            </a>
+            <a href="https://www.linkedin.com/in/th%C3%A1i-b%E1%BA%A3o-an-06026a262/" target="_blank">
+                <img src="images/linkedin.png" alt="LinkedIn"> LinkedIn: Thai Bao An
+            </a>
+            <a href="https://www.facebook.com/rainbow.rain.1420/" target="_blank">
+                <img src="images/facebook.png" alt="LinkedIn"> Facebook: An Thai
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Thai Bao An. All Rights Reserved.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typed = new Typed(".input", {
+            strings: ["Thai Bao An", "majoring in Data Science"],
+            typeSpeed: 100,
+            backSpeed: 100,
+            loop: true
+        });
+    </script>
+</body>
+
+</html>
